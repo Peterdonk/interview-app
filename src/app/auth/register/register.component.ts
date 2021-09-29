@@ -14,6 +14,7 @@ import { ConfirmPasswordValidator } from 'src/app/validators/confirm-password.va
 export class RegisterComponent implements OnInit {
   // login model for sign
   registerModel = {} as RegisterModel;
+  reg = new RegExp('^[0-9]+$');
 
   // login form group
   registerForm: FormGroup | any;
@@ -26,7 +27,12 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private storage: StorageService,
     private router: Router
-  ) {}
+  ) {
+    window.history.pushState(null, '', window.location.href);
+    window.onpopstate = function () {
+      window.history.pushState(null, '', window.location.href);
+    };
+  }
 
   /**
    * Init life cycle hook
@@ -57,7 +63,12 @@ export class RegisterComponent implements OnInit {
 
         phoneNumber: [
           this.registerModel.phoneNumber,
-          Validators.compose([Validators.required]),
+          Validators.compose([
+            Validators.required,
+            Validators.minLength(10),
+            Validators.maxLength(10),
+            Validators.pattern(this.reg),
+          ]),
         ],
         confirmPassword: [this.registerModel.confirmPassword],
       },

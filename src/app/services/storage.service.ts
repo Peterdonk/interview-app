@@ -7,10 +7,11 @@ import { of, Observable } from 'rxjs';
 export class StorageService {
   /**
    * Get user roles in JSON string
+   *  @param key
    * @returns Observable<any>
    */
-  public getUser(): Observable<any> {
-    const user: any = localStorage.getItem('user');
+  public getUser(key: string): Observable<any> {
+    const user: any = localStorage.getItem(key);
     try {
       return of(JSON.parse(user.split(',')));
     } catch (e) {
@@ -20,7 +21,7 @@ export class StorageService {
 
   /**
    * Set user roles
-   * @param user
+   * @param user and key
    * @returns TokenStorage
    */
   public setUser(key: string, user: any): any {

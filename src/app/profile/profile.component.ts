@@ -12,14 +12,19 @@ export class ProfileComponent implements OnInit {
   // input decorator to get user details
   user = {} as RegisterModel;
 
-  constructor(private storage: StorageService, private router: Router) {}
+  constructor(private storage: StorageService, private router: Router) {
+    window.history.pushState(null, '', window.location.href);
+    window.onpopstate = function () {
+      window.history.pushState(null, '', window.location.href);
+    };
+  }
 
   sendMessage(message: string): void {
     alert(message);
   }
 
   ngOnInit(): void {
-    this.storage.getUser().subscribe((res: any) => {
+    this.storage.getUser('user').subscribe((res: any) => {
       this.user = res ?? {};
       if (Object.keys(this.user).length === 0) {
         return this.router.navigate(['/auth/register']);
