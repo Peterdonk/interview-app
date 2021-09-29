@@ -26,8 +26,8 @@ export class AuthGuard implements CanActivate {
     this.store.getUser('user').subscribe((res: any) => {
       console.log(res);
       if (res && Object.keys(res).length === 0) {
-        this.router.navigate(['auth/register']);
         alert('Please register to see your profile');
+        this.router.navigate(['auth/login']);
         return false;
       } else {
         return true;

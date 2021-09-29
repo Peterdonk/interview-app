@@ -2,7 +2,7 @@
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">
 
     <div class="row px-3 mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Full name</label>
+      <label for="" class="form-label">Full name</label>
       <input type="text" class="form-control" formControlName="fullName" placeholder="Enter full name">
 
       <div class="text-danger font-size-14" *ngIf="submitted && formControl.fullName.errors">
@@ -13,7 +13,7 @@
     </div>
 
     <div class="row px-3 mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Phone number</label>
+      <label for="" class="form-label">Phone number</label>
       <input type="text" class="form-control" formControlName="phoneNumber" placeholder="Enter phone number">
 
       <div class="text-danger font-size-14" *ngIf="submitted && formControl.phoneNumber.errors">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="row px-3 mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Email address</label>
+      <label for="" class="form-label">Email address</label>
       <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
 
       <div class="text-danger font-size-14" *ngIf="submitted && formControl.email.errors">
@@ -46,7 +46,7 @@
     </div>
 
     <div class="row px-3 mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Password</label>
+      <label for="" class="form-label">Password</label>
       <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
 
       <div class="text-danger font-size-14" *ngIf="submitted && formControl.password.errors">
@@ -58,7 +58,7 @@
     </div>
 
     <div class="row px-3 mb-3">
-      <label for="exampleFormControlInput1" class="form-label"> Confirm Password</label>
+      <label for="" class="form-label"> Confirm Password</label>
       <input type="password" class="form-control" formControlName="confirmPassword"
         placeholder="Enter confirm password">
 
